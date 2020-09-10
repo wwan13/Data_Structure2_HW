@@ -90,29 +90,24 @@ NODE* sort_by_number(NODE* head)
         {
             if(k->link->student.num > k->student.num)
             {
-                if(k==head)
+                if(k==p)
                 {
                     k->link = k->link->link;
                     k->link->link = k;
                 }
                 else
                 {
-                    tmp->link = k->link;
+                    //k->link = tmp->link;
                     k->link = k->link->link;
                     k->link->link = k;
+                    //k->link = k;
+                    tmp->link = k->link;
                 }
             }
-            if(k==p)
-            {
-                tmp = k;
-            }
-            else
-            {
-                tmp = tmp->link;
-            }
+            tmp = k;
         }
+        tmp = p;
     }
-    
     return head;
 }
 
