@@ -8,18 +8,21 @@
 #include <string.h>
 
 typedef struct student
+// 학생의 정보를 담고있는 구조체
 {
-    int num;
-    char name[30];
-    float grade;
+    int num; // 학번
+    char name[30]; // 이름
+    float grade; // 총점
 }STUDENT;
 
 typedef struct node
+// 단일링크드리스트 노드
 {
-    STUDENT student;
-    struct node *link;
+    STUDENT student; // 데이터필드
+    struct node *link; // 링크필드
 }NODE;
 
+//함수 원형 정의
 NODE* insert_data(NODE* head, STUDENT value);
 void print_list(NODE *head);
 
@@ -52,6 +55,7 @@ int main()
 }
 
 NODE* insert_data(NODE* head, STUDENT value)
+// 연결리스트에 데이터를 삽입하는 함수
 {
     NODE *p = (NODE *)malloc(sizeof(NODE));
     p->student = value;
@@ -61,6 +65,7 @@ NODE* insert_data(NODE* head, STUDENT value)
 }
 
 void print_list(NODE *head)
+// 리스트를 출력하는 함수
 {
     for (NODE *p = head;p!=NULL;p = p->link)
     {
@@ -68,19 +73,34 @@ void print_list(NODE *head)
     }
 }
 
-NODE* sort_by_integer(NODE* head)
+NODE* sort_by_number(NODE* head)
+// 학번을 기준으로 정렬하는 함수
+{
+    NODE* p = NULL;
+    NODE* k = NULL;
+    for(p=head;p!=NULL;p=p->link)
+    {
+        for(k=p;k!=NULL;k=k->link)
+        {
+            if(k->link->student.num > k->student.num)
+            {
+                
+            }
+        }
+    }
+    
+    return head;
+}
+
+NODE* sort_by_name(NODE* head)
+// 이름을 기준으로 정렬하는 함수
 {
     
     return head;
 }
 
-NODE* sort_by_string(NODE* head)
-{
-    
-    return head;
-}
-
-NODE* sort_by_float(NODE *head)
+NODE* sort_by_grade(NODE *head)
+// 점수를 기준으로 정렬하는 함수
 {
     
     return head;
