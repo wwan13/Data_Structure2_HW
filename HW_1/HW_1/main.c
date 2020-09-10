@@ -25,6 +25,7 @@ typedef struct node
 //함수 원형 정의
 NODE* insert_data(NODE* head, STUDENT value);
 void print_list(NODE *head);
+NODE* sort_by_number(NODE* head);
 
 int main()
 {
@@ -50,7 +51,10 @@ int main()
     rewind(fp);
     
     print_list(head);
+    printf("----------------------\n");
     
+    head = sort_by_number(head);
+    print_list(head);
     
 }
 
@@ -78,13 +82,33 @@ NODE* sort_by_number(NODE* head)
 {
     NODE* p = NULL;
     NODE* k = NULL;
+    NODE* tmp = NULL;
+    
     for(p=head;p!=NULL;p=p->link)
     {
         for(k=p;k!=NULL;k=k->link)
         {
             if(k->link->student.num > k->student.num)
             {
-                
+                if(k==head)
+                {
+                    k->link = k->link->link;
+                    k->link->link = k;
+                }
+                else
+                {
+                    tmp->link = k->link;
+                    k->link = k->link->link;
+                    k->link->link = k;
+                }
+            }
+            if(k==p)
+            {
+                tmp = k;
+            }
+            else
+            {
+                tmp = tmp->link;
             }
         }
     }
