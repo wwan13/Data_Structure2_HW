@@ -6,12 +6,18 @@ typedef struct student
     int num;
     char name[30];
     float grade;
-}student;
+}STUDENT;
+
+typedef struct node
+{
+    STUDENT student;
+    struct node *link;
+}NODE;
 
 int main()
 {
     FILE *fp;
-    student tmp;
+    STUDENT tmp;
     int count=0;
     
     fp = fopen("data.txt","r");
