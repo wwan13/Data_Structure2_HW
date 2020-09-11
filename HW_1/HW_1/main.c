@@ -81,8 +81,8 @@ NODE* sort_by_number(NODE* head)
 // 학번을 기준으로 정렬하는 함수
 {
     NODE* p = NULL;
-    NODE* k = NULL;
-    NODE* tmp = NULL;
+    //NODE* k = NULL;
+    //NODE* tmp = NULL;
     
     for(p=head;p!=NULL;p=p->link)
     {
