@@ -26,6 +26,8 @@ typedef struct node
 NODE* insert_data(NODE* head, STUDENT value);
 void print_list(NODE *head);
 NODE* sort_by_number(NODE* head);
+NODE* sort_by_name(NODE* head);
+NODE* sort_by_grade(NODE *head);
 
 int main()
 {
@@ -46,16 +48,19 @@ int main()
     {
         fscanf(fp,"%d %s %f",&tmp.num,tmp.name,&tmp.grade);
         head = insert_data(head, tmp);
-        //printf("%d %s %f\n",tmp.num,tmp.name,tmp.grade);
     }
     rewind(fp);
     
     print_list(head);
     printf("----------------------\n");
     
-    head = sort_by_number(head);
-    print_list(head);
+    //head = sort_by_number(head);
     
+    //head = sort_by_name(head);
+    
+    head = sort_by_grade(head);
+    
+    print_list(head);
 }
 
 NODE* insert_data(NODE* head, STUDENT value)
@@ -77,36 +82,29 @@ void print_list(NODE *head)
     }
 }
 
+void swap(NODE* n1, NODE* n2)
+{
+    STUDENT tmp;
+    tmp = n1->student;
+    n1->student = n2->student;
+    n2->student=tmp;
+}
+
 NODE* sort_by_number(NODE* head)
 // 학번을 기준으로 정렬하는 함수
 {
     NODE* p = NULL;
     NODE* k = NULL;
-    NODE* tmp = NULL;
     
-    for(p=head;p!=NULL;p=p->link)
+    for(p=head;p->link!=NULL;p=p->link)
     {
-        for(k=p;k!=NULL;k=k->link)
+        for(k=head;k->link!=NULL;k=k->link)
         {
-            if(k->link->student.num > k->student.num)
+            if(k->student.num > k->link->student.num)
             {
-                if(k==p)
-                {
-                    k->link = k->link->link;
-                    k->link->link = k;
-                }
-                else
-                {
-                    //k->link = tmp->link;
-                    k->link = k->link->link;
-                    k->link->link = k;
-                    //k->link = k;
-                    tmp->link = k->link;
-                }
+                swap(k,k->link);
             }
-            tmp = k;
         }
-        tmp = p;
     }
     return head;
 }
@@ -114,13 +112,37 @@ NODE* sort_by_number(NODE* head)
 NODE* sort_by_name(NODE* head)
 // 이름을 기준으로 정렬하는 함수
 {
+    NODE* p = NULL;
+    NODE* k = NULL;
     
+    for(p=head;p->link!=NULL;p=p->link)
+    {
+        for(k=head;k->link!=NULL;k=k->link)
+        {
+            if(strcmp(k->student.name,k->link->student.name)>0)
+            {
+                swap(k,k->link);
+            }
+        }
+    }
     return head;
 }
 
 NODE* sort_by_grade(NODE *head)
 // 점수를 기준으로 정렬하는 함수
 {
+    NODE* p = NULL;
+    NODE* k = NULL;
     
+    for(p=head;p->link!=NULL;p=p->link)
+    {
+        for(k=head;k->link!=NULL;k=k->link)
+        {
+            if(k->link->student.grade > k->student.grade)
+            {
+                swap(k,k->link);
+            }
+        }
+    }
     return head;
 }
