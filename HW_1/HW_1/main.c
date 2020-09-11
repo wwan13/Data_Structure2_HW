@@ -86,6 +86,7 @@ NODE* sort_by_number(NODE* head)
     
     for(p=head;p!=NULL;p=p->link)
     {
+        /*
         for(k=p;k!=NULL;k=k->link)
         {
             if(k->link->student.num > k->student.num)
@@ -107,6 +108,7 @@ NODE* sort_by_number(NODE* head)
             tmp = k;
         }
         tmp = p;
+         */
     }
     return head;
 }
