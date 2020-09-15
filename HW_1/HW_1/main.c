@@ -23,26 +23,27 @@ typedef struct node
 }NODE;
 
 //함수 원형 정의
+void error(char* string);
 NODE* insert_data(NODE* head, STUDENT value);
 void print_type(char *string);
 void print_list(NODE *head);
+void free_memory(NODE* head);
 NODE* sort_by_number(NODE* head);
 NODE* sort_by_name(NODE* head);
 NODE* sort_by_grade(NODE *head);
 
 int main()
 {
-    FILE *fp;
-    STUDENT tmp;
-    NODE* head = NULL;
+    FILE *fp; // 파일 포인터 생성
+    STUDENT tmp; // 파일에서 데이터를 받아오기 위해 임시로 사용하는 변수
+    NODE* head = NULL; // 연결리스트의 맨 처음 노드를 가리키는 변수
 
     
-    fp = fopen("data.txt","r");
+    fp = fopen("data.txt","r"); // 파일 오픈
     
-    if(fp == NULL)
+    if(fp == NULL) //파일 오픈 오류시 에러 출력 후 코드 종료
     {
-        printf("file open error\n");
-        exit(1);
+        error("file open error");
     }
     
     while(!feof(fp))
@@ -51,6 +52,7 @@ int main()
         head = insert_data(head, tmp);
     }
     rewind(fp);
+    fclose(fp);
     
     print_type("   정렬 전    ");
     print_list(head);
@@ -69,12 +71,26 @@ int main()
     print_type("총점 기준 정렬");
     head = sort_by_grade(head);
     print_list(head);
+    
+    free_memory(head);
+    return 0;
+}
+
+void error(char* string)
+// 에러를 출력하고 프로그램을 종료하는 함수
+{
+    printf("%s\n",string);
+    exit(1);
 }
 
 NODE* insert_data(NODE* head, STUDENT value)
 // 연결리스트에 데이터를 삽입하는 함수
 {
     NODE *p = (NODE *)malloc(sizeof(NODE));
+    if(p==NULL)
+    {
+        error("memory allocate arror");
+    }
     p->student = value;
     p->link = head;
     head = p;
@@ -82,6 +98,7 @@ NODE* insert_data(NODE* head, STUDENT value)
 }
 
 void print_type(char *string)
+// 리스트 출력 전 어떤 방식으로 정렬했는지 알려주기 위한 출력 함수
 {
     printf("┌──────────────────────────┐\n");
     printf("│       %8s     │\n",string);
@@ -103,7 +120,20 @@ void print_list(NODE *head)
     printf("└──────────┴────────┴──────┘\n");
 }
 
+void free_memory(NODE* head)
+// 연결리스트에 사용된 메모리를 해제하는 함수
+{
+    NODE *p = NULL;
+    NODE *tmp = NULL;
+    for(p = head;p!=NULL;p=p->link)
+    {
+        tmp = p;
+        free(tmp);
+    }
+}
+
 void swap(NODE* n1, NODE* n2)
+// 두 노드의 데이터를 서로 바꿔주는 함수
 {
     STUDENT tmp;
     tmp = n1->student;
