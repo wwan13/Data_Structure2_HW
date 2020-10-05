@@ -5,7 +5,31 @@
 
 #include <stdio.h>
 
+typedef struct TreeNode {
+    int data;
+    struct TreeNode *left, *right;
+}TreeNode;
+
 int main()
 {
-    
+    printf("asd");
+}
+
+void recursive_inoder(TreeNode *root)
+{
+    if(root)
+    {
+        recursive_inoder(root->left);
+        printf("|%d| ",root->data);
+        recursive_inoder(root->right);
+    }
+}
+
+void *pop()
+{
+    TreeNode *p = NULL;
+    if(top >=0 )
+    {
+        p = stack
+    }
 }
