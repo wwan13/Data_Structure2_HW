@@ -5,9 +5,9 @@
 
 // [selection_sort]
 // 선택정렬 알고리즘
-// @param (int list[]) -> 정렬해야 할 리스트
+// @param (char** data) -> 정렬해야 할 문자열을 담은 리스트
 // @param (int n) -> 데이터 개수
-void selection_sort( int data[], int n ) {
+void selection_sort( char** data, int n ) {
     
     // 반복문에서 사용하는 변수
     int i,j;
@@ -17,12 +17,17 @@ void selection_sort( int data[], int n ) {
     for ( i=0;i<n-1;i++ ) {
         least = i;
         for ( j=i+1;j<n;j++ ) {
-            if ( data[j]<data[least] ) {
+            // strcmp(data[j],data[least])<0
+            if ( strcmp(data[j],data[least])<0 ) {
                 least = j;
             }
-            swap( &data[i],&data[least] );
+            swap( data[i],data[least] );
         }
     }
+    
+//    for(i=0;i<n;i++) {
+//        printf("%s " ,data[i]);
+//    }
 }
 
 #endif
