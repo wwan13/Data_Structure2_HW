@@ -69,11 +69,14 @@ int main()
         i++;
     }
     
+    fclose(fp);
+    
     printf("-------\n");
 //    insertion_sort(data, count);
 //    selection_sort(data, count);
-    bubble_sort(data, count);
+//    bubble_sort(data, count);
 //    shell_sort(data, count);
+    merge_sort(data, 0, count);
 
 }
 
