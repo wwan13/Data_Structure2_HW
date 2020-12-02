@@ -13,7 +13,7 @@ void gap_insertion_sort( int data[],int first,int last, int gap ) {
     // 삽입할 데이터인 key값을 저장하는 변수
     int key;
     
-    for( i=first+fap;i<last;i+=gap ) {
+    for( i=first+gap;i<last;i+=gap ) {
         key = data[i];
         
         for( j=i-gap;j>=first && data[j]>key;j-=gap ) {
@@ -38,7 +38,7 @@ void shell_sort( int data[],int n ) {
     
     for( gap=n/2;gap>0;gap/=2 ) {
         
-        if( gap&2==0 ) {
+        if( gap%2==0 ) {
             gap ++;
         }
         
