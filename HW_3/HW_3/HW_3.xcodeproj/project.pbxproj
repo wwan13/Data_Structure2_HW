@@ -32,6 +32,8 @@
 		1210FC002576A3CE0088037E /* bubble_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bubble_sort.h; sourceTree = "<group>"; };
 		1210FC012576A5770088037E /* shell_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell_sort.h; sourceTree = "<group>"; };
 		1210FC022576AC2E0088037E /* merge_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = merge_sort.h; sourceTree = "<group>"; };
+		1210FC042578DE580088037E /* quick_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quick_sort.h; sourceTree = "<group>"; };
+		1210FC062578E3650088037E /* heap_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heap_sort.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,8 @@
 				1210FC002576A3CE0088037E /* bubble_sort.h */,
 				1210FC012576A5770088037E /* shell_sort.h */,
 				1210FC022576AC2E0088037E /* merge_sort.h */,
+				1210FC042578DE580088037E /* quick_sort.h */,
+				1210FC062578E3650088037E /* heap_sort.h */,
 			);
 			path = HW_3;
 			sourceTree = "<group>";

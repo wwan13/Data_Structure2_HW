@@ -5,8 +5,8 @@
 // 삽입정렬--
 // 선택정렬--
 // 버블정렬--
-// 쉘정렬-
-// 퀵정렬
+// 쉘정렬--
+// 퀵정렬--
 // 히프정렬
 // 합병정렬
 
@@ -76,7 +76,12 @@ int main()
 //    selection_sort(data, count);
 //    bubble_sort(data, count);
 //    shell_sort(data, count);
-    merge_sort(data, 0, count);
+//    merge_sort(data, 0, count-1);
+//    quick_sort(data, 0, count-1);
+    
+    for(i=0;i<count;i++) {
+        printf("%s ",data[i]);
+    }
 
 }
 
