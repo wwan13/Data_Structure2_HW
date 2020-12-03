@@ -36,12 +36,13 @@ void merge( char** data, int left, int mid, int right ) {
         }
     }
     
-    // 남아있는 데이터 복사
+    // 오른쪽에 남아있는 데이터 복사
     if( i>mid ) {
         for( l=j;l<=right;l++ ) {
             sorted_list[k++] = data[l];
         }
     }
+    // 왼쪽에 남아있는 데이터 복사
     else {
         for( l=j;l<=mid;l++ ) {
             sorted_list[k++] = data[l];
