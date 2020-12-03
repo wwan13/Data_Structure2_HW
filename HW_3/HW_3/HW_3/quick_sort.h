@@ -19,8 +19,8 @@ int partition( char** data, int left, int right ) {
     int low = left;
     int high = right+1;
     
-    // 피봇을 배열의 맨 왼쪽 인덱스로 초기화
-    pivot = data[left];
+    // 피봇을 배열의 중간 인덱스로 초기화
+    pivot = data[(left+right)/2];
     
     do {
         

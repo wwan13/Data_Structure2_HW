@@ -9,7 +9,6 @@
 // @param (char *str) -> 두번째 문자열
 void swap(char *str1, char *str2) {
     char* tmp;
-    tmp = (char *)malloc(sizeof(char)*100);
     tmp = str1;
     str1 = str2;
     str2 = tmp;

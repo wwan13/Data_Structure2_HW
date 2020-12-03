@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "sort_methods.h"
 
@@ -34,6 +35,11 @@ int main()
     
     // 데이터 (문자열들) 를 담은 이중 포인터
     char **data;
+    
+    // 시간을 측정하는데 사용할 clock_t 타입 변수 선언
+    clock_t start, finish;
+    // 측정한 시간을 저장할 변수 선언
+    double time;
     
     // 파일 오픈 && 예외 처리
     fp = fopen("data.txt","r");
@@ -65,23 +71,69 @@ int main()
         // length = strlen(tmp);
         data[i] = (char *)malloc(sizeof(char) * (length+1));
         strcpy(data[i], tmp);
-        printf("%s\n\n",data[i]);
         i++;
     }
     
     fclose(fp);
     
-    printf("-------\n");
+    printf("삽입정럴 \n");
+//    start = clock();
 //    insertion_sort(data, count);
-//    selection_sort(data, count);
-//    bubble_sort(data, count);
-//    shell_sort(data, count);
-//    merge_sort(data, 0, count-1);
-//    quick_sort(data, 0, count-1);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
     
-    for(i=0;i<count;i++) {
-        printf("%s ",data[i]);
-    }
+    
+    printf("선택정럴 \n");
+//    start = clock();
+//    selection_sort(data, count);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
+    
+    
+    printf("버블정럴 \n");
+//    start = clock();
+//    bubble_sort(data, count);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
+
+    
+    printf("쉘정럴 \n");
+//    start = clock();
+//    shell_sort(data, count);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
+    
+    
+//    printf("합병정럴 \n");
+//    start = clock();
+    merge_sort(data, 0, count-1);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
+    
+    printf("퀵정럴 \n");
+//    start = clock();
+//    quick_sort(data, 0, count-1);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
+    
+    printf("힙정럴 \n");
+//    start = clock();
+//    heap_sort(data, count);
+//    finish = clock();
+//    time = (double)(finish - start) / CLOCKS_PER_SEC;
+//    printf("%lf\n",time);
+    
+    
+    
+//    for(i=0;i<count;i++) {
+//        printf("%s ",data[i]);
+//    }
 
 }
 
@@ -90,3 +142,4 @@ void error(char *str) {
     printf("%s",str);
     exit(1);
 }
+
