@@ -21,17 +21,15 @@ void merge( char** data, int left, int mid, int right ) {
     j = mid + 1;
     
     // 정렬된 결과를 담을 임시 배열 메모리 할당
-    sorted_list = (char **)malloc(sizeof(char *) * right);
-    for( l=0;l<right;l++ ) {
-        sorted_list[i] = (char *)malloc(sizeof(char)*100);
-    }
+    sorted_list = (char **)malloc(sizeof(char *) * right+1);
     
     // 분할 정렬된 두 리스트 합병
     while ( i<=mid && j<=right ) {
-//        strcmp(data[i],data[j]) <= 0
+        
         if( strcmp(data[i],data[j]) <= 0 ) {
             sorted_list[k++] = data[i++];
         }
+        
         else {
             sorted_list[k++] = data[j++];
         }
@@ -45,7 +43,7 @@ void merge( char** data, int left, int mid, int right ) {
     }
     // 왼쪽에 남아있는 데이터 복사
     else {
-        for( l=j;l<=mid;l++ ) {
+        for( l=i;l<=mid;l++ ) {
             sorted_list[k++] = data[l];
         }
     }
@@ -54,6 +52,9 @@ void merge( char** data, int left, int mid, int right ) {
     for( l=left;l<=right;l++ ) {
         data[l] = sorted_list[l];
     }
+    
+    
+    free(sorted_list);
     
 }
 

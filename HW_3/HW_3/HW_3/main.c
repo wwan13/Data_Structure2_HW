@@ -2,14 +2,6 @@
 // 작성일 : 2020.11.29
 // 프로그램명 : 다양한 정렬 방법들의 실행 시간을 비교하는 프로그램
 
-// 삽입정렬--
-// 선택정렬--
-// 버블정렬--
-// 쉘정렬--
-// 퀵정렬--
-// 히프정렬
-// 합병정렬
-
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,6 +11,8 @@
 #include "sort_methods.h"
 
 void error(char *str);
+void copy_array(char **data, char **temp, int n);
+void display_format( char *str, int count, double time );
 
 int main()
 {
@@ -35,6 +29,8 @@ int main()
     
     // 데이터 (문자열들) 를 담은 이중 포인터
     char **data;
+    char **temp;
+    
     
     // 시간을 측정하는데 사용할 clock_t 타입 변수 선언
     clock_t start, finish;
@@ -68,73 +64,79 @@ int main()
         while(tmp[length]!='\0') {
             length++;
         }
-        // length = strlen(tmp);
         data[i] = (char *)malloc(sizeof(char) * (length+1));
         strcpy(data[i], tmp);
         i++;
     }
     
+    // 원본 데이터 저장
+    temp = data;
+    
+    // 파일 닫기
     fclose(fp);
     
-    printf("삽입정럴 \n");
-//    start = clock();
-//    insertion_sort(data, count);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
+    // 삽입 정렬 시간 계산
+    start = clock();
+    insertion_sort(data, count);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    display_format("삽입정렬", count, time);
+    // 다시 원본 배열로 돌리기
+    copy_array(data, temp, count);
     
+    // 선택정렬 시간 계산
+    start = clock();
+    selection_sort(data, count);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    display_format("선택정렬", count, time);
+    copy_array(data, temp, count);
     
-    printf("선택정럴 \n");
-//    start = clock();
-//    selection_sort(data, count);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
-    
-    
-    printf("버블정럴 \n");
-//    start = clock();
-//    bubble_sort(data, count);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
+    // 버블 정렬 시간 계산
+    start = clock();
+    bubble_sort(data, count);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    copy_array(data, temp, count);
+    display_format("버블정렬", count, time);
 
+    // 쉘 정렬 시간 계산
+    start = clock();
+    shell_sort(data, count);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    copy_array(data, temp, count);
+    display_format("쉘정렬 ", count, time);
     
-    printf("쉘정럴 \n");
-//    start = clock();
-//    shell_sort(data, count);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
-    
-    
-//    printf("합병정럴 \n");
-//    start = clock();
+    // 합병 정렬 시간 계산
+    start = clock();
     merge_sort(data, 0, count-1);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    copy_array(data, temp, count);
+    display_format("합병정렬", count, time);
     
-    printf("퀵정럴 \n");
-//    start = clock();
-//    quick_sort(data, 0, count-1);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
+    // 퀵 정렬 시간 계산
+    start = clock();
+    quick_sort(data, 0, count-1);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    copy_array(data, temp, count);
+    display_format("퀵정렬", count, time);
     
-    printf("힙정럴 \n");
-//    start = clock();
-//    heap_sort(data, count);
-//    finish = clock();
-//    time = (double)(finish - start) / CLOCKS_PER_SEC;
-//    printf("%lf\n",time);
+    // 힢 정렬 시간 계산
+    start = clock();
+    heap_sort(data, count);
+    finish = clock();
+    time = (double)(finish - start) / CLOCKS_PER_SEC;
+    display_format("힢정렬", count, time);
     
+    // 사용한 데이터 해제
+    for(i=0;i<count;i++) {
+        free(data[i]);
+    }
     
-    
-//    for(i=0;i<count;i++) {
-//        printf("%s ",data[i]);
-//    }
-
+    return 0;
 }
 
 // 에러를 내용을 출력하고 프로그램을 종료하는 함수
@@ -143,3 +145,20 @@ void error(char *str) {
     exit(1);
 }
 
+// 데이터를 복사하는 함수
+void copy_array(char **data, char **temp, int n) {
+    
+    int i;
+    
+    for(i=0;i<n;i++) {
+        data[i] = temp[i];
+    }
+    
+}
+
+void display_format( char *str, int count, double time ) {
+    printf("----------< %10s >----------\n",str);
+    printf("   - 데이터 갯수 >> %d -\n",count);
+    printf("   - 걸린 시간 >> %.4lf -\n",time);
+    printf("------------------------------\n\n");
+}

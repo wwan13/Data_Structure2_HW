@@ -14,11 +14,14 @@ void bubble_sort( char** data, int n ) {
     // 반복문을 위한 변수
     int i,j;
     
+    // n-1만큼 반복
     for( i=n-1;i>0;i-- ) {
         
         for( j=0;j<i;j++ ) {
             
+            // 앞에 데이터가 더 크면
             if( strcmp(data[j],data[j+1])>0 ) {
+                // 두 데이터의 위치 교환
                 swap(data[j],data[j+1]);
             }
             

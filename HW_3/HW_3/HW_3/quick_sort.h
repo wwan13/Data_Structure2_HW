@@ -20,26 +20,32 @@ int partition( char** data, int left, int right ) {
     int high = right+1;
     
     // 피봇을 배열의 중간 인덱스로 초기화
-    pivot = data[(left+right)/2];
+    pivot = data[left];
     
+    // low가 high보다 작을떄까지 반복
     do {
         
+        // data[low] 가 피봇값보다 작아질때가지 low값 증가
         do {
             low++;
         } while ( low<=right && ( strcmp(data[low],pivot) < 0 ) );
         
+        // data[low] 가 피봇값보다 커질때가지 low값 증가
         do {
             high--;
         } while ( high>=left && ( strcmp(data[high],pivot) > 0 ) );
         
+        // low<high 이면 두 값 을 바꿈
         if( low<high ) {
             swap( data[low],data[high] );
         }
         
     } while( low<high );
     
+    // data[left], data[right] 교환
     swap( data[left],data[high] );
     
+    // 맨 오른쪽 인덱스 반환
     return high;
     
 }
@@ -51,8 +57,13 @@ int partition( char** data, int left, int right ) {
 // @param (int right) -> 배열의 맨 오른쪽 인덱스
 void quick_sort( char** data,int left,int right ) {
     
+    // left가 right 보다 작을 경우
     if( left<right ) {
+        
+        // 파티션 구하기
         int q = partition(data,left,right);
+        
+        // quick_sort 순환 호출
         quick_sort(data,left,q-1);
         quick_sort(data,q+1,right);
     }
