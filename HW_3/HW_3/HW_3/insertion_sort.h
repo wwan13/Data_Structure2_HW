@@ -14,21 +14,25 @@ void insertion_sort( char** data,int n ) {
     // 삽입할 데이터인 key값을 저장하는 변수
     char* key;
     
+    
+    // n만큼 반복
     for( i=0;i<n;i++ ) {
+        
+        // key 에 data의 맨 첫값 저장
         key = data[i];
         
+        // j>0 이고 data[j] 의 문자열이 key의 문자열보다 커질때 까지 반복
         for( j=i-1;j>=0 && strcmp(data[j],key)>0;j-- ) {
+            
+            // data[j+1] 에 data[j] 값 저장
             data[j+1] = data[j];
         }
         
+        // data[j+1] 에는 key 값 저장
         data[j+1] = key;
     }
-//
-//    for(i=0;i<n;i++) {
-//        printf("%s ",data[i]);
-//    }
-}
 
+}
 
 #endif
 

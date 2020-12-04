@@ -14,20 +14,24 @@ void selection_sort( char** data, int n ) {
     // 최소 인덱스를 저장하는 변수
     int least;
     
+    // n-1 까지 반복
     for ( i=0;i<n-1;i++ ) {
+        
+        // 시작 값 저장
         least = i;
+        
         for ( j=i+1;j<n;j++ ) {
-            // strcmp(data[j],data[least])<0
+            // 해당 데이터가 더 작을 경우
             if ( strcmp(data[j],data[least])<0 ) {
+                // j를 최소값으로 저장
                 least = j;
             }
+            
+            // data[i] 와 data[least] 값 교환
             swap( data[i],data[least] );
         }
     }
     
-//    for(i=0;i<n;i++) {
-//        printf("%s " ,data[i]);
-//    }
 }
 
 #endif

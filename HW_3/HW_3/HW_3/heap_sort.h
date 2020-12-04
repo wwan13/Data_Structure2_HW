@@ -68,8 +68,10 @@ void insert_max_heap( HeapType *h, char* item ) {
 // @return -> 삭제된 데이터
 char* delete_max_heap( HeapType *h ) {
     
+    // 힙에서 뺴낼 데이터를 찾기 위한 변수
     int parent, child;
     
+    // 문자열을 담기 위한 변수
     char *item, *temp;
     
     item = h->heap[1];
@@ -78,18 +80,29 @@ char* delete_max_heap( HeapType *h ) {
     parent = 1;
     child = 2;
     
+    
+    // child 가 힙의 크기보다 작을때까지
     while ( child<=h->heap_size ) {
         
-        if ( (child<h->heap_size) && (strcmp(h->heap[child], h->heap[child+1])) ) {
+        // 오른쪽 자식이 더 크면 오른쪽 자식으로 바꿈
+        if ( (child<h->heap_size) && (strcmp(h->heap[child], h->heap[child+1])<0) ) {
             child++;
         }
-        if ( strcmp(temp, h->heap[child]) )
+        
+        // temp 값이 자식 노드의 값보다 커지면 종료
+        if ( strcmp(temp, h->heap[child])>=0 )
             break;
+        
+        // 자식 노드, 아빠 노드 변경
         h->heap[parent] = h->heap[child];
         parent = child;
         child *= 2;
     }
+    
+    // 부모 노드에 temp 대입
     h->heap[parent] = temp;
+    
+    // item 반환
     return item;
 }
 
