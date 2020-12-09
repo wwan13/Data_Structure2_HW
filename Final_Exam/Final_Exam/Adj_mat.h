@@ -8,13 +8,13 @@
 
 #define MAX_VERTICE 50
 
-typedef struct GraphType {
+typedef struct GraphType_mat {
     int n;
     int adj_mat[MAX_VERTICE][MAX_VERTICE];
-}GraphType;
+}GraphType_mat;
 
 // 그래프 초기화
-void init_mat(GraphType* g) {
+void init_mat(GraphType_mat* g) {
     int r,c;
     g->n = 0;
     for(r=0;r<MAX_VERTICE;r++) {
@@ -25,7 +25,7 @@ void init_mat(GraphType* g) {
 }
 
 // 정접 삽입
-void insert_vertex_mat(GraphType* g, int v) {
+void insert_vertex_mat(GraphType_mat* g, int v) {
     if((g->n+1)>MAX_VERTICE) {
         printf("그래프 개수 초과");
         exit(1);
@@ -34,7 +34,7 @@ void insert_vertex_mat(GraphType* g, int v) {
 }
 
 // 간선 삽입 연산
-void insert_edge_mat(GraphType* g, int start, int end) {
+void insert_edge_mat(GraphType_mat* g, int start, int end) {
     if(start >= g->n || end >= g->n) {
         printf("그래프 정접 번호 오류");
         exit(1);
@@ -44,7 +44,7 @@ void insert_edge_mat(GraphType* g, int start, int end) {
 }
 
 // 인접 행렬 출력
-void print_adj_mat(GraphType* g) {
+void print_adj_mat(GraphType_mat* g) {
     int i,j;
     for(i=0;i<MAX_VERTICE;i++) {
         for(j=0;j<MAX_VERTICE;j++) {

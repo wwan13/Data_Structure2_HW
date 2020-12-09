@@ -13,13 +13,13 @@ typedef struct GraphNode {
     struct GraphNode* link;
 }GraphNode;
 
-typedef struct GraphType {
+typedef struct GraphType_list {
     int n;
     GraphNode* adj_list[MAX_VERTICE];
-}GraphType;
+}GraphType_list;
 
 // 리스트 초기화
-void init(GraphType* g) {
+void init(GraphType_list* g) {
     int v;
     g->n = 0;
     for(v=0;v<MAX_VERTICE;v++) {
@@ -28,7 +28,7 @@ void init(GraphType* g) {
 }
 
 // 정점 삽입 연산
-void insert_vertex_list(GraphType* g, int v) {
+void insert_vertex_list(GraphType_list* g, int v) {
     if((g->n+1)>MAX_VERTICE) {
         printf("그래프 개수 초과");
         exit(1);
@@ -37,7 +37,7 @@ void insert_vertex_list(GraphType* g, int v) {
 }
 
 // 간선 삽입 연산
-void insert_edge_list(GraphType* g, int u, int v) {
+void insert_edge_list(GraphType_list* g, int u, int v) {
     GraphNode *node;
     
     if(u >= g->n || v >= g->n) {
@@ -52,7 +52,7 @@ void insert_edge_list(GraphType* g, int u, int v) {
 }
 
 // 인접 리스트 출력
-void print_adj_list(GraphType *g) {
+void print_adj_list(GraphType_list *g) {
     int i;
     
     for(i=0;i<g->n;i++) {
