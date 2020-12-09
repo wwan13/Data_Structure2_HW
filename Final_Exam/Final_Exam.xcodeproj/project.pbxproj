@@ -36,6 +36,8 @@
 		1210FC2B2581491F0088037E /* floyd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = floyd.h; sourceTree = "<group>"; };
 		1210FC2C25814B2A0088037E /* stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 		1210FC2D25814B460088037E /* topo_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = topo_sort.h; sourceTree = "<group>"; };
+		1210FC2E258150000088037E /* radix_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = radix_sort.h; sourceTree = "<group>"; };
+		1210FC2F25815DF20088037E /* seq_search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = seq_search.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,8 @@
 				1210FC2B2581491F0088037E /* floyd.h */,
 				1210FC2C25814B2A0088037E /* stack.h */,
 				1210FC2D25814B460088037E /* topo_sort.h */,
+				1210FC2E258150000088037E /* radix_sort.h */,
+				1210FC2F25815DF20088037E /* seq_search.h */,
 			);
 			path = Final_Exam;
 			sourceTree = "<group>";

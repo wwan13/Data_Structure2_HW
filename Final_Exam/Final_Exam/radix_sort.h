@@ -1,3 +1,7 @@
+
+#ifndef radix_sort_h
+#define radix_sort_h
+
 #include "queue.h"
 
 #define BUCKETS 10
@@ -25,3 +29,6 @@ void radix_sort(int list[], int n) {
         factor *= 10;
     }
 }
+
+
+#endif /* radix_sort_h */
