@@ -16,11 +16,11 @@ void queue_init(QueueType *q) {
     q->front = q->rear = 0;
 }
 
-int is_empty(QueueType *q) {
+int queue_is_empty(QueueType *q) {
     return (q->front == q->rear);
 }
 
-int is_full(QueueType *q) {
+int queue_is_full(QueueType *q) {
     return ((q->rear)%MAX_QUEUE_SIZE == q->front);
 }
 

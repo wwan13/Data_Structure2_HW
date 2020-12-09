@@ -1,3 +1,7 @@
+
+#ifndef topo_sort_h
+#define topo_sort_h
+
 #include "adj_list.h"
 #include "stack.h"
 
@@ -48,3 +52,6 @@ int topo_list(GraphType_list *g) {
     printf("\n");
     return (i==g->n);
 }
+
+
+#endif /* topo_sort_h */

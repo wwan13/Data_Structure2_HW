@@ -18,7 +18,7 @@ void bfs_mat(GraphType_mat *g, int v) {
     
     enqueue(&q, v);
     
-    while (!is_empty(&q)) {
+    while (!queue_is_empty(&q)) {
         v = dequeue(&q);
         for(w=0;w<g->n;w++) {
             if(g->adj_mat[v][w] && !visited[w]) {
@@ -40,7 +40,7 @@ void bfs_list(GraphType_list *g, int v) {
     printf("%d 방문 -> ",v);
     
     enqueue(&q, v);
-    while(!is_empty(&q)) {
+    while(!queue_is_empty(&q)) {
         v = dequeue(&q);
         for(w = g->adj_list[v];w;w=w->link) {
             if(!visited[w->vertex]) {

@@ -33,6 +33,9 @@
 		1210FC282580AC2E0088037E /* kruskal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kruskal.h; sourceTree = "<group>"; };
 		1210FC292580B1FE0088037E /* prim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prim.h; sourceTree = "<group>"; };
 		1210FC2A2581453B0088037E /* dijkstra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dijkstra.h; sourceTree = "<group>"; };
+		1210FC2B2581491F0088037E /* floyd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = floyd.h; sourceTree = "<group>"; };
+		1210FC2C25814B2A0088037E /* stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		1210FC2D25814B460088037E /* topo_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = topo_sort.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,9 @@
 				1210FC282580AC2E0088037E /* kruskal.h */,
 				1210FC292580B1FE0088037E /* prim.h */,
 				1210FC2A2581453B0088037E /* dijkstra.h */,
+				1210FC2B2581491F0088037E /* floyd.h */,
+				1210FC2C25814B2A0088037E /* stack.h */,
+				1210FC2D25814B460088037E /* topo_sort.h */,
 			);
 			path = Final_Exam;
 			sourceTree = "<group>";
