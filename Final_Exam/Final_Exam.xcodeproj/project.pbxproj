@@ -30,6 +30,7 @@
 		1210FC25258099D60088037E /* dfs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dfs.h; sourceTree = "<group>"; };
 		1210FC2625809E8B0088037E /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 		1210FC272580A1000088037E /* bfs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bfs.h; sourceTree = "<group>"; };
+		1210FC282580AC2E0088037E /* kruskal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kruskal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				1210FC25258099D60088037E /* dfs.h */,
 				1210FC2625809E8B0088037E /* queue.h */,
 				1210FC272580A1000088037E /* bfs.h */,
+				1210FC282580AC2E0088037E /* kruskal.h */,
 			);
 			path = Final_Exam;
 			sourceTree = "<group>";

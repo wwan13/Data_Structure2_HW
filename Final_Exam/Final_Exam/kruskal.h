@@ -1,3 +1,13 @@
+//
+//  kruskal.h
+//  Final_Exam
+//
+//  Created by 김태완 on 2020/12/09.
+//
+
+#ifndef kruskal_h
+#define kruskal_h
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -91,3 +101,6 @@ void kruskal(GraphType *g) {
         i++;
     }
 }
+
+
+#endif /* kruskal_h */
